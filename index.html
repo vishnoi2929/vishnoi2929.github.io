@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahesh Vishnoi | Mobile App Developer</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 30, 49, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-gradient: linear-gradient(135deg, #ff9933 0%, #ff5500 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        /* Ambient Glowing Background Elements */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 153, 51, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            top: 10%;
+            left: 10%;
+            z-index: -1;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 85, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            bottom: 10%;
+            right: 10%;
+            z-index: -1;
+        }
+
+        .portfolio-container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .avatar-glow {
+            width: 80px;
+            height: 80px;
+            border-radius: 50px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(255, 85, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: #ff9933;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* App Section */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-left: 3px solid #ff9933;
+            padding-left: 12px;
+            text-align: left;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            text-align: left;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            border-color: rgba(255, 153, 51, 0.3);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .app-icon-wrapper {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            background: #23120b;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+        }
+
+        .app-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .app-info p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .app-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer & Contact info */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 32px;
+            text-align: center;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .email-link {
+            color: #ff9933;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+
+        .email-link:hover {
+            color: #ff5500;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #475569;
+        }
+
+        @media (max-width: 600px) {
+            .portfolio-container {
+                padding: 24px;
+            }
+            .app-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        
+        <!-- Hero Profile Info -->
+        <header class="hero">
+            <div class="avatar-glow">MV</div>
+            <h1>Mahi Vishnoi</h1>
+            <div class="subtitle">Mobile App Developer</div>
+            <p>Crafting high-performance, beautiful mobile applications with Flutter, Dart, and Android SDK.</p>
+        </header>
+
+        <!-- Apps Section -->
+        <main>
+            <h2 class="section-title">Published Applications</h2>
+            
+            <div class="app-card">
+                <!-- Glowing book/diya emoji represents the app's spiritual nature -->
+                <div class="app-icon-wrapper">📖</div>
+                <div class="app-info">
+                    <h3>Sabdwani (शब्दवाणी)</h3>
+                    <p>गुरु जाम्भोजी महाराज का जीवन परिचय, १२० शब्दवाणी (व्याख्या सहित), बिश्नोई समाज के २९ नियम और प्रेरणादायक पौराणिक कथाओं का पावन संग्रह।</p>
+                    <div class="app-links">
+                        <a href="/sabdwani/index.html" class="btn btn-primary">Visit App Site</a>
+                        <a href="/sabdwani/privacy.html" class="btn btn-secondary">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer / Contact Info -->
+        <footer class="footer">
+            <h4>Get in Touch</h4>
+            <a href="mailto:mahivishnoi2505@gmail.com" class="email-link">mahivishnoi2505@gmail.com</a>
+            <p class="copyright">&copy; 2026 Mahi Vishnoi. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
