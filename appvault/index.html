@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AegisVault - The secure sandboxed file manager with PIN protection and built-in player. Free download.">
+    <title>AegisVault - Secure Personal File Vault</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #020617;
+            --card-bg: #0f172a;
+            --accent-color: #6366f1;
+            --accent-gradient: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --success-color: #10b981;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .brand-logo svg {
+            fill: white;
+            width: 20px;
+            height: 20px;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding: 5rem 0;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin: 0 0 1.5rem 0;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 25px -5px rgba(99, 102, 241, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .hero-mockup {
+            flex: 0.8;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Mockup Mobile Frame */
+        .phone-frame {
+            width: 260px;
+            height: 520px;
+            background: #020617;
+            border: 10px solid #1e293b;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                        0 0 40px rgba(99, 102, 241, 0.15);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .phone-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .phone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 0.5rem;
+        }
+
+        .phone-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .phone-app-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin: auto 0;
+        }
+
+        .phone-folder-card {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 0.65rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .phone-folder-icon {
+            font-size: 1rem;
+        }
+
+        .phone-footer-ad {
+            height: 32px;
+            background: #020617;
+            border: 1px dashed rgba(99, 102, 241, 0.4);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;
+            color: #818cf8;
+            font-weight: 800;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin: 0 0 1rem 0;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #818cf8;
+        }
+
+        .feature-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 3rem 0;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-mockup {
+                margin-top: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="#" class="brand">
+                <div class="brand-logo">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8V10H16A1,1 0 0,1 17,11V18A1,1 0 0,1 16,19H8A1,1 0 0,1 7,18V11A1,1 0 0,1 8,10H9V8A3,3 0 0,1 12,5M12,7A1,1 0 0,0 11,8V10H13V8A1,1 0 0,0 12,7M12,13A1.5,1.5 0 0,0 10.5,14.5C10.5,15.13 10.87,15.68 11.4,15.9L11,17H13L12.6,15.9C13.13,15.68 13.5,15.13 13.5,14.5A1.5,1.5 0 0,0 12,13Z" />
+                    </svg>
+                </div>
+                <span class="brand-name">AegisVault</span>
+            </a>
+            <div class="nav-links">
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-tag">Android App v2.5.0</div>
+                <h1>Secure Lock File Storage on Device</h1>
+                <p>AegisVault provides a private, sandboxed safe on your Android device. Protect your sensitive videos, personal audio files, private images, and documents behind an encrypted PIN code. 100% offline security, zero cloud leakage.</p>
+                <div class="hero-actions">
+                    <a href="app-release.apk" class="btn btn-primary" download>
+                        <!-- Download SVG -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download Release APK
+                    </a>
+                    <a href="privacy.html" class="btn btn-secondary">Read Privacy Policy</a>
+                </div>
+            </div>
+            <div class="hero-mockup">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="phone-header">
+                            <span class="phone-title">🛡️ AegisVault</span>
+                            <span style="font-size: 0.6rem; color: #475569;">🔋 100%</span>
+                        </div>
+                        <div style="font-size: 0.7rem; font-weight: 800; margin-top: 1rem;">My Folders</div>
+                        <div class="phone-app-grid">
+                            <div class="phone-folder-card" style="border-color: #6366f1;">
+                                <span class="phone-folder-icon">📂</span>
+                                <span>All Files</span>
+                            </div>
+                            <div class="phone-folder-card" style="border-color: #10b981;">
+                                <span class="phone-folder-icon">📥</span>
+                                <span>Downloads</span>
+                            </div>
+                            <div class="phone-folder-card" style="border-color: #f59e0b;">
+                                <span class="phone-folder-icon">🔒 🎬</span>
+                                <span>Secret Videos</span>
+                            </div>
+                            <div class="phone-folder-card" style="border-color: #f43f5e;">
+                                <span class="phone-folder-icon">🎵</span>
+                                <span>My Tracks</span>
+                            </div>
+                        </div>
+                        <div class="phone-footer-ad">
+                            📢 Google AdMob Banner
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Features Section -->
+        <main class="features">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p>AegisVault is designed from the ground up for maximum local protection and seamless user experience.</p>
+            </div>
+            <div class="grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Encrypted PIN Sandbox</h3>
+                    <p>Setup a local 6-digit PIN. Your files are isolated and copied into the App's private sandbox, completely invisible to the device gallery or default file managers.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🚫</div>
+                    <h3>Zero Internet Leakage</h3>
+                    <p>AegisVault works fully offline. We do not host remote servers. Your private data remains solely on your physical device, away from hackers and cloud compromises.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Built-in Media Player</h3>
+                    <p>Play back your vault's private videos and audio tracks instantly with our premium built-in media player. Supports multiple screen orientations.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Personalized Themes</h3>
+                    <p>Choose from standard elegant colors or watch a short video ad to unlock premium themes like Midnight Teal, Dark Rose, and Sunset Gold.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 AegisVault. Developed by <a href="../index.html">Mahesh Vishnoi</a>. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #475569;"><a href="privacy.html">Privacy Policy</a> • Support: mahivishnoi2505@gmail.com</p>
+        </footer>
+    </div>
+
+</body>
+</html>
