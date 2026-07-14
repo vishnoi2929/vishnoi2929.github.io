@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service & Privacy Policy for AegisVault - Private File Vault with PIN protection.">
+    <title>AegisVault - Terms & Privacy Policy</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #020617;
+            --card-bg: #0f172a;
+            --accent-color: #6366f1;
+            --accent-gradient: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+        }
+
+        .logo-container {
+            width: 70px;
+            height: 70px;
+            background: var(--accent-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-icon {
+            fill: white;
+            width: 32px;
+            height: 32px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .nav-btn {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p, li {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 2rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 3rem 1.5rem 1.5rem 1.5rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <!-- Shield Lock SVG -->
+            <svg class="logo-icon" viewBox="0 0 24 24">
+                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8V10H16A1,1 0 0,1 17,11V18A1,1 0 0,1 16,19H8A1,1 0 0,1 7,18V11A1,1 0 0,1 8,10H9V8A3,3 0 0,1 12,5M12,7A1,1 0 0,0 11,8V10H13V8A1,1 0 0,0 12,7M12,13A1.5,1.5 0 0,0 10.5,14.5C10.5,15.13 10.87,15.68 11.4,15.9L11,17H13L12.6,15.9C13.13,15.68 13.5,15.13 13.5,14.5A1.5,1.5 0 0,0 12,13Z" />
+            </svg>
+        </div>
+        <h1>AegisVault</h1>
+        <div class="subtitle">Secure personal file manager with custom PIN encryption & offline storage.</div>
+    </header>
+
+    <div class="container">
+        <div class="navigation">
+            <a href="#" class="nav-btn" onclick="switchTab('terms')">Terms of Service</a>
+            <a href="#" class="nav-btn" onclick="switchTab('privacy')">Privacy Policy</a>
+        </div>
+
+        <!-- Terms of Service Section -->
+        <section id="terms" class="active">
+            <div class="card">
+                <h2>Terms of Service</h2>
+                <p><strong>Last Updated: July 2026</strong></p>
+                <p>Welcome to AegisVault. These Terms of Service ("Terms") govern your use of the AegisVault mobile application (the "App"). By downloading or using the App, you agree to comply with and be bound by these Terms.</p>
+
+                <h3>1. Use of the App</h3>
+                <p>AegisVault is a personal file management application designed for local device storage and media playback. You may use this App to import, organize, and play your personal media files. You agree to use this App only for lawful purposes.</p>
+
+                <h3>2. Local Data Storage & Sandbox</h3>
+                <ul>
+                    <li>All files imported into AegisVault are stored exclusively on your local device storage, sandboxed inside the App's private directory.</li>
+                    <li>No file is uploaded, backed up, or shared to any remote cloud servers.</li>
+                    <li>If the App is uninstalled, all locally stored vault files are deleted permanently and cannot be recovered by us.</li>
+                </ul>
+
+                <h3>3. Passcode Lock Security</h3>
+                <p>You are solely responsible for maintaining the confidentiality of your 6-digit App PIN passcode. AegisVault operates fully offline and does not store recovery passwords or verification details on a server. Therefore, <strong>we cannot recover a forgotten passcode</strong>. We advise writing your passcode down or keeping a secure backup elsewhere.</p>
+
+                <h3>4. Advertisements</h3>
+                <p>AegisVault displays advertisements powered by Google AdMob to support free usage. These advertisements may use anonymized mobile identifiers to serve, track, and limit advertisements in accordance with Google's Advertising Policies.</p>
+
+                <h3>5. Disclaimer of Warranties</h3>
+                <p>AegisVault is provided "AS IS" without warranties of any kind. We do not guarantee that the App will be error-free or that your files will never be lost due to hardware failures or device issues. We encourage users to maintain external backups of highly critical files.</p>
+
+                <h3>6. Changes to Terms</h3>
+                <p>We reserves the right to modify these Terms at any time. Continued use of the App following any modifications constitutes your acceptance of the revised Terms.</p>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section id="privacy">
+            <div class="card">
+                <h2>Privacy Policy</h2>
+                <p><strong>Last Updated: July 2026</strong></p>
+                <p>AegisVault ("we", "our") values your privacy. This Privacy Policy details how we handle user data in the AegisVault application.</p>
+
+                <h3>1. No Personal Information Collection</h3>
+                <p>AegisVault does not collect, track, or share any personally identifiable information (PII). The App does not require user accounts, email addresses, phone numbers, or registration of any kind to function.</p>
+
+                <h3>2. Absolute Local File Control</h3>
+                <p>Your privacy is protected by our architecture:</p>
+                <ul>
+                    <li><strong>No Server Uploads:</strong> All files (videos, audios, images, and documents) imported into AegisVault remain stored strictly on your local device.</li>
+                    <li><strong>Encrypted Database:</strong> App settings and your custom passcode are stored in secure local preferences on your device.</li>
+                    <li><strong>Zero Remote Access:</strong> We have no access to your files, folders, PIN passcode, or usage logs.</li>
+                </ul>
+
+                <h3>3. Third-Party Advertising (Google AdMob)</h3>
+                <p>AegisVault uses Google AdMob for displaying mobile advertisements. AdMob may collect and use certain anonymized device logs and advertising identifiers (such as Android Advertising ID) to deliver targeted ads, handle frequency capping, and compile performance statistics. This data is handled in strict compliance with Google's Privacy Policies.</p>
+
+                <h3>4. Permissions Requested</h3>
+                <p>AegisVault may request the following permissions:</p>
+                <ul>
+                    <li><strong>Read External Storage / Photos & Videos:</strong> Needed solely to let you browse and select files on your device to import into the secure vault sandbox.</li>
+                    <li><strong>Internet Access:</strong> Required to load Google AdMob advertisements.</li>
+                </ul>
+
+                <h3>5. Contact Us</h3>
+                <p>If you have any questions regarding these Terms or our Privacy Policy, you can reach out via GitHub Issues or contact support at <a href="mailto:maheshvishnoi2505@gmail.com" style="color: var(--accent-color);">maheshvishnoi2505@gmail.com</a>.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AegisVault. Developed by Mahesh Vishnoi. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
